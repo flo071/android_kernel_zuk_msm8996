@@ -1037,8 +1037,7 @@ void security_compute_xperms_decision(u32 ssid,
 
 
 	if (unlikely(!tclass || tclass > policydb.p_classes.nprim)) {
-		if (printk_ratelimit())
-                	printk(KERN_WARNING "SELinux:  Invalid class %hu\n", tclass);
+		pr_warn_ratelimited("SELinux:  Invalid class %hu\n", tclass);
 		goto out;
 	}
 

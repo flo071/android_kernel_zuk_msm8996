@@ -114,10 +114,8 @@ int wil_p2p_listen(struct wil6210_priv *wil, unsigned int duration,
 	u8 channel = P2P_DMG_SOCIAL_CHANNEL;
 	int rc;
 
-	if (!chan)
-		return -EINVAL;
-
-	channel = chan->hw_value;
+	if (chan)
+		channel = chan->hw_value;
 
 	wil_dbg_misc(wil, "%s: duration %d\n", __func__, duration);
 

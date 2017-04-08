@@ -95,7 +95,6 @@ static struct regmap_config wcd9xxx_i2c_base_regmap_config = {
 	.reg_bits = 16,
 	.val_bits = 8,
 	.can_multi_write = false,
-	.use_single_rw = true,
 };
 
 static const int wcd9xxx_cdc_types[] = {

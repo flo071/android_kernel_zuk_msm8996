@@ -324,18 +324,6 @@ struct mdp_output_layer {
 	uint32_t			reserved[6];
 };
 
-/* Enable Deterministic Frame Rate Control (FRC) */
-#define MDP_VIDEO_FRC_ENABLE (1 << 0)
-
-struct mdp_frc_info {
-	/* flags to control FRC feature */
-	uint32_t flags;
-	/* video frame count per frame */
-	uint32_t frame_cnt;
-	/* video timestamp per frame in millisecond unit */
-	int64_t timestamp;
-};
-
 /*
  * Destination scaling info structure holds setup paramaters for upscaling
  * setting in the destination scaling block.
@@ -437,8 +425,6 @@ struct mdp_layer_commit_v1 {
 	 */
 	int			retire_fence;
 
-	/* FRC info per device which contains frame count and timestamp */
-	struct mdp_frc_info __user *frc_info;
 	/*
 	 * Scaler data and control for setting up destination scaler.
 	 * A userspace pointer that points to a list of
